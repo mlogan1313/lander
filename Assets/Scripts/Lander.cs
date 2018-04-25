@@ -71,7 +71,7 @@ public class Lander : MonoBehaviour
     {
         landerRigidBody2D = GetComponent<Rigidbody2D>();
         landerObjective = GameObject.Find("LanderObjective");
-        feetJoint = transform.FindChild("LanderFeet").GetComponent<HingeJoint2D>();
+        feetJoint = transform.Find("LanderFeet").GetComponent<HingeJoint2D>();
         restartbutton = GameObject.Find("RestartButton").GetComponent<Button>();
         restartbutton.onClick.AddListener(Restart);
     }
@@ -80,7 +80,7 @@ public class Lander : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         restartbutton.gameObject.GetComponent<Image>().enabled = false;
-        restartbutton.gameObject.transform.FindChild("Text").GetComponent<Text>().enabled = false;
+        restartbutton.gameObject.transform.Find("Text").GetComponent<Text>().enabled = false;
     }
 
     // Update is called once per frame
@@ -224,12 +224,12 @@ public class Lander : MonoBehaviour
 
         Destroy(gameObject);
         restartbutton.gameObject.GetComponent<Image>().enabled = true;
-        restartbutton.gameObject.transform.FindChild("Text").GetComponent<Text>().enabled = true;
+        restartbutton.gameObject.transform.Find("Text").GetComponent<Text>().enabled = true;
     }
 
     public void EnableRestartButton()
     {
         restartbutton.gameObject.GetComponent<Image>().enabled = true;
-        restartbutton.gameObject.transform.FindChild("Text").GetComponent<Text>().enabled = true;
+        restartbutton.gameObject.transform.Find("Text").GetComponent<Text>().enabled = true;
     }
 }
